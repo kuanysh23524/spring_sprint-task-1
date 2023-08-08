@@ -24,38 +24,27 @@ public class DBManager {
         if (item != null) {
             if (item.getExam() >= 95 && item.getExam() >= 100) {
                 item.setMark("A+");
-            }
-            else if (item.getExam() >= 90 && item.getExam() <= 94) {
+            } else if (item.getExam() >= 90 && item.getExam() <= 94) {
                 item.setMark("A-");
-            }
-            else if (item.getExam() >= 85 && item.getExam() <= 89) {
+            } else if (item.getExam() >= 85 && item.getExam() <= 89) {
                 item.setMark("B+");
-            }
-            else if (item.getExam() >= 80 && item.getExam() <= 84) {
+            } else if (item.getExam() >= 80 && item.getExam() <= 84) {
                 item.setMark("B");
-            }
-            else if (item.getExam() >= 75 && item.getExam() <= 79) {
+            } else if (item.getExam() >= 75 && item.getExam() <= 79) {
                 item.setMark("B-");
-            }
-            else if (item.getExam() >= 70 && item.getExam() <= 74) {
+            } else if (item.getExam() >= 70 && item.getExam() <= 74) {
                 item.setMark("С+");
-            }
-            else if (item.getExam() >= 65 && item.getExam() <= 69) {
+            } else if (item.getExam() >= 65 && item.getExam() <= 69) {
                 item.setMark("С");
-            }
-            else if (item.getExam() >= 60 && item.getExam() <= 64) {
+            } else if (item.getExam() >= 60 && item.getExam() <= 64) {
                 item.setMark("С-");
-            }
-            else if (item.getExam() >= 55 && item.getExam() <= 59) {
+            } else if (item.getExam() >= 55 && item.getExam() <= 59) {
                 item.setMark("D+");
-            }
-            else if (item.getExam() >= 50 && item.getExam() <= 54) {
+            } else if (item.getExam() >= 50 && item.getExam() <= 54) {
                 item.setMark("D");
-            }
-            else if (item.getExam() >= 25 && item.getExam() <= 49) {
+            } else if (item.getExam() >= 25 && item.getExam() <= 49) {
                 item.setMark("RETAKE");
-            }
-            else if (item.getExam() >= 0 && item.getExam() <= 24) {
+            } else if (item.getExam() >= 0 && item.getExam() <= 24) {
                 item.setMark("SUMMER SEMESTER");
             }
 

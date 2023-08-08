@@ -1,4 +1,5 @@
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="Layout/main.html">
 <link type="text/css" rel="stylesheet" th:href="@{'/css/bootstrap.min.css'}">
 <link rel="stylesheet" type="text/css" th:href="@{'/css/styles.css'}">
 <link rel="stylesheet" href="CSS.css">
@@ -11,31 +12,31 @@
     <title>ADD-Student</title>
 </head>
 <body>
-<!--Navbar-->
-<div th:insert="~{NavBar}"></div>
+<!--&lt;!&ndash;Navbar&ndash;&gt;-->
+<!--<div th:insert="~{NavBar}"></div>-->
 
+<div layout:fragment="content">
+    <!--form-->
+    <form class="col-4 mx-auto" action="/add_Student" method="post">
 
-<!--form-->
-<form class="col-4 mx-auto" action="/add_Student" method="post">
+        <div class="mb-3 ">
+            <label class="form-label">NAME:</label>
+            <input type="text" name="name" class="form-control" placeholder="Insert name:">
+        </div>
 
-    <div class="mb-3 ">
-        <label class="form-label">NAME:</label>
-        <input type="text" name="name" class="form-control" placeholder="Insert name:">
-    </div>
+        <div class="mb-3">
+            <label class="form-label">SURNAME:</label>
+            <input type="text" name="surname" class="form-control" placeholder="Insert surname:">
+        </div>
 
-    <div class="mb-3">
-        <label class="form-label">SURNAME:</label>
-        <input type="text" name="surname" class="form-control" placeholder="Insert surname:">
-    </div>
+        <div class="mb-3">
+            <label class="form-label">EXAM:</label>
+            <input type="text" name="exam" class="form-control" placeholder="Insert exam:">
+        </div>
+        <button type="submit" class="btn btn-success">ADD STUDENT</button>
 
-    <div class="mb-3">
-        <label class="form-label">EXAM:</label>
-        <input type="text" name="exam" class="form-control" placeholder="Insert exam:">
-    </div>
-    <button type="submit" class="btn btn-success">ADD STUDENT</button>
-
-</form>
-
+    </form>
+</div>
 
 </body>
 </html>

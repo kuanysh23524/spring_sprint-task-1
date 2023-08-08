@@ -7,20 +7,20 @@
 <body>
 <!--Navbar-->
 <nav class="navbar" style="background-color: #117a8b">
-  <div class="container-fluid">
-    <div class="d-flex align-items-center">
-      <a class="navbar-brand" style="color: white">Student List</a>
-      <a th:href="${'/'}" style="color: #b9bbbe" class="AAA-HOVER">Home</a>
-      <a th:href="${'add_Student'}" style="color: #b9bbbe" class="ml-3">Add Student</a>
+    <div class="container-fluid">
+        <div class="d-flex align-items-center">
+            <a class="navbar-brand" style="color: white">Student List</a>
+            <a th:href="${'/'}" style="color: #b9bbbe" class="AAA-HOVER">Home</a>
+            <a th:href="${'add_Student'}" style="color: #b9bbbe" class="ml-3">Add Student</a>
 
+        </div>
+        <form class="d-flex" role="search">
+            <div style="margin-right:5px">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            </div>
+            <button class="btn btn-outline-white" type="submit">Search</button>
+        </form>
     </div>
-    <form class="d-flex" role="search">
-      <div style="margin-right:5px">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      </div>
-      <button class="btn btn-outline-white" type="submit">Search</button>
-    </form>
-  </div>
 </nav>
 
 </body>

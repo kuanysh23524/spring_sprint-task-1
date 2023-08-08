@@ -10,28 +10,28 @@
         crossorigin="anonymous"></script>
 
 
-
 <div layout:fragment="content">
-<table class="table table-striped">
-    <thead>
-    <th>ID</th>
-    <th>NAME</th>
-    <th>SURNAME</th>
-    <th>EXAM</th>
-    <th>MARK</th>
-    <th>DETAILS:</th>
-    </thead>
-    <tbody>
-    <tr th:each="item:${items}" th:style="${item.getExam()>=50?'color: green; font-weight: bold;':'color:red;font-weight: bold;'}">
-        <td th:text="${item.getId()}"></td>
-        <td th:text="${item.getName()}"></td>
-        <td th:text="${item.getSurname()}"></td>
-        <td th:text="${item.getExam()}"></td>
-        <td th:text="${item.getMark()}"></td>
-        <td><a class="btn btn-outline-primary" th:href="${'/details/'+item.id}">details</a></td>
-    </tr>
-    </tbody>
-</table>
+    <table class="table table-striped">
+        <thead>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>SURNAME</th>
+        <th>EXAM</th>
+        <th>MARK</th>
+        <th>DETAILS:</th>
+        </thead>
+        <tbody>
+        <tr th:each="item:${items}"
+            th:style="${item.getExam()>=50?'color: green; font-weight: bold;':'color:red;font-weight: bold;'}">
+            <td th:text="${item.getId()}"></td>
+            <td th:text="${item.getName()}"></td>
+            <td th:text="${item.getSurname()}"></td>
+            <td th:text="${item.getExam()}"></td>
+            <td th:text="${item.getMark()}"></td>
+            <td><a class="btn btn-outline-primary" th:href="${'/details/'+item.id}">details</a></td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 
 

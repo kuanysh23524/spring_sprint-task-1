@@ -47,11 +47,11 @@ public class HomeController {
         item.setName(name);
         item.setSurname(surname);
         item.setExam(exam);
-        return "redirect:/details/"+id;
+        return "redirect:/details/" + id;
     }
 
     @PostMapping("delete/{id}")
-    public String deleteItem(@PathVariable Long id){
+    public String deleteItem(@PathVariable Long id) {
         DBManager.DeleteItem(id);
         return "redirect:/";
     }

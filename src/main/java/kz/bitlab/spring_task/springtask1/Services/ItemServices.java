@@ -1,18 +1,20 @@
-package kz.bitlab.spring_task.springtask1.db;
+package kz.bitlab.spring_task.springtask1.Services;
 
 import kz.bitlab.spring_task.springtask1.models.Item;
 import lombok.Getter;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class DBManager {
+@Service
+public class ItemServices {
     @Getter
-    public static List<Item> items = new ArrayList<>();
-    private static Long id = 6L;
+    public List<Item> items = new ArrayList<>();
+    private Long id = 6L;
 
-    static {
+    {
         items.add(new Item(1L, "Kuanysh", "Omarov", 100, "A+"));
         items.add(new Item(2L, "Emil", "Amiruldaev", 90, "A-"));
         items.add(new Item(3L, "Meirambek", "Imash", 100, "A+"));
@@ -20,7 +22,7 @@ public class DBManager {
         items.add(new Item(5L, "Merkhat", "Manlaev", 85, "B+"));
     }
 
-    public static void addItem(Item item) {
+    public void addItem(Item item) {
         if (item != null) {
             if (item.getExam() >= 95 && item.getExam() >= 100) {
                 item.setMark("A+");
@@ -54,13 +56,13 @@ public class DBManager {
         items.add(item);
     }
 
-    public static Item getItemById(Long id) {
+    public Item getItemById(Long id) {
         return items.stream()
                 .filter(item -> Objects.equals(item.getId(), id))
                 .findFirst().orElseThrow(null);
     }
 
-    public static void DeleteItem(Long id) {
+    public void DeleteItem(Long id) {
         items.removeIf(item -> Objects.equals(item.getId(), id));
     }
 }

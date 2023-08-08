@@ -1,0 +1,118 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link type="text/css" rel="stylesheet" th:href="@{'/css/bootstrap.min.css'}">
+<link rel="stylesheet" type="text/css" th:href="@{'/css/styles.css'}">
+<link rel="stylesheet" href="CSS.css">
+<script type="text/javascript" th:src="@{'/js/bootstrap.bundle.js'}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>ADD-Student</title>
+</head>
+<body>
+
+
+<!--Navbar-->
+<div th:insert="~{NavBar}"></div>
+
+
+
+<!--details-->
+<div class="col-4 mx-auto" style="border : 1px black solid ; margin-top: 100px; border-radius: 5px; width: 200px">
+    <div th:if="${detailsItem.getExam() <25}" class="alert alert-danger" role="alert">
+        <strong>SUMMER SEMESTER</strong>
+    </div>
+    <div class="mb-3 text-center">
+        <label class="form-label">NAME:</label>
+        <h5 th:text="${detailsItem.getName()}"></h5>
+    </div>
+
+    <div class="mb-3 text-center">
+        <label class="form-label">SURNAME:</label>
+        <h5 th:text="${detailsItem.getSurname()}"></h5>
+    </div>
+
+    <div class="mb-3 text-center">
+        <label class="form-label">EXAM:</label>
+        <h5 th:text="${detailsItem.getExam()}"></h5>
+    </div>
+
+    <div style="margin-bottom: 10px" class="text-center">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            edit
+        </button>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+            DELETE
+        </button>
+    </div>
+</div>
+
+
+<!-- edit Modal -->
+<form th:action="${'/edit-item/'+detailsItem.id}" method="post">
+    <div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">edit</h1>
+                    <button type="button" class="btn-close btn-outline-danger" data-bs-dismiss="modal"
+                            aria-label="Close">x
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="mb-3">
+                        <label class="form-label">NAME:</label>
+                        <input th:value="${detailsItem.getName()}"  name="edit_student_name" type="text" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">SURNAME:</label>
+                        <input th:value="${detailsItem.getSurname()}" name="edit_student_surname" type="text" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">EXAM:</label>
+                        <input th:value="${detailsItem.getExam()}" name="edit_student_exam" type="number" class="form-control">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button  class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+<!-- delete Modal -->
+<form th:action="${'/delete/'+detailsItem.id}" method="post">
+    <div class="modal fade" id="exampleModal1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel1">Do you really want to delete this student?</h1>
+                    <button type="button" class="btn-close btn-outline-danger" data-bs-dismiss="modal"
+                            aria-label="Close">x
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h5 th:text="${detailsItem.getName()}"></h5>
+                    <h5 th:text="${detailsItem.getSurname()}"></h5>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button  class="btn btn-outline-danger">delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>

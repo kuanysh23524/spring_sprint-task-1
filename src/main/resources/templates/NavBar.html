@@ -14,9 +14,9 @@
             <a th:href="${'add_Student'}" style="color: #b9bbbe" class="ml-3">Add Student</a>
 
         </div>
-        <form class="d-flex" role="search">
+        <form   class="d-flex" role="search" action="/search" method="get">
             <div style="margin-right:5px">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
             </div>
             <button class="btn btn-outline-white" type="submit">Search</button>
         </form>

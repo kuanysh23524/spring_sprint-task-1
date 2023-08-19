@@ -49,7 +49,7 @@
 
 
     <!-- edit Modal -->
-    <form th:action="${'/edit-item/'+detailsItem.id}" method="post">
+    <form action="/edit-item/" method="post">
         <div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -60,22 +60,22 @@
                         </button>
                     </div>
                     <div class="modal-body">
-
+                        <input type="hidden" name="id" th:value="${detailsItem.id}">
                         <div class="mb-3">
                             <label class="form-label">NAME:</label>
-                            <input th:value="${detailsItem.getName()}" name="edit_student_name" type="text"
+                            <input th:value="${detailsItem.getName()}" name="name" type="text"
                                    class="form-control">
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">SURNAME:</label>
-                            <input th:value="${detailsItem.getSurname()}" name="edit_student_surname" type="text"
+                            <input th:value="${detailsItem.getSurname()}" name="surname" type="text"
                                    class="form-control">
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">EXAM:</label>
-                            <input th:value="${detailsItem.getExam()}" name="edit_student_exam" type="number"
+                            <input th:value="${detailsItem.getExam()}" name="exam" type="number"
                                    class="form-control">
                         </div>
 

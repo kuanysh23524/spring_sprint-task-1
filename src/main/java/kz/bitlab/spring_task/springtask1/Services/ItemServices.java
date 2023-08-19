@@ -1,7 +1,9 @@
 package kz.bitlab.spring_task.springtask1.Services;
 
 import kz.bitlab.spring_task.springtask1.models.Item;
+import kz.bitlab.spring_task.springtask1.repositories.ItemRepository;
 import lombok.Getter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -10,16 +12,11 @@ import java.util.Objects;
 
 @Service
 public class ItemServices {
-    @Getter
-    public List<Item> items = new ArrayList<>();
-    private Long id = 6L;
+    @Autowired
+    private ItemRepository itemRepository;
 
-    {
-        items.add(new Item(1L, "Kuanysh", "Omarov", 100, "A+"));
-        items.add(new Item(2L, "Emil", "Amiruldaev", 90, "A-"));
-        items.add(new Item(3L, "Meirambek", "Imash", 100, "A+"));
-        items.add(new Item(4L, "Symbat", "Kenzhebay", 80, "B"));
-        items.add(new Item(5L, "Merkhat", "Manlaev", 85, "B+"));
+    public List<Item> getitems() {
+        return itemRepository.findAll();
     }
 
     public void addItem(Item item) {
@@ -51,18 +48,19 @@ public class ItemServices {
             }
 
         }
-        item.setId(id);
-        id++;
-        items.add(item);
+        itemRepository.save(item);
     }
 
     public Item getItemById(Long id) {
-        return items.stream()
-                .filter(item -> Objects.equals(item.getId(), id))
-                .findFirst().orElseThrow(null);
+        return itemRepository.findById(id).orElse(null);
     }
 
-    public void DeleteItem(Long id) {
-        items.removeIf(item -> Objects.equals(item.getId(), id));
+    public void editItem(Item updatedItem) {
+        itemRepository.save(updatedItem);
+    }
+
+    public void deleteItem(Long id) {
+        itemRepository.deleteById(id);
+//        items.removeIf(item -> Objects.equals(item.getId(), id));
     }
 }
